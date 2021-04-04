@@ -22,7 +22,7 @@ public class Peaklass{
 
         int punktid = 0;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < küsimused1.length; i++) {
             voor(i+1, punktid);
             TimeUnit.SECONDS.sleep(1);
             JList list = new JList(new String[] {küsimused1[i].getVastusevariandid()[0], küsimused1[i].getVastusevariandid()[1], küsimused1[i].getVastusevariandid()[2]});
@@ -34,8 +34,8 @@ public class Peaklass{
         System.out.println("Said esimesest plokist kokku " + punktid + " punkti!");
         System.out.println("Edasi tuleb pildiküsimuste plokk.");
 
-        for (int i = 0; i < 2; i++) {
-            voor(i+1+4, punktid);
+        for (int i = 0; i < küsimused2.length; i++) {
+            voor(i+1+küsimused1.length, punktid);
             TimeUnit.SECONDS.sleep(1);
             JFrame f=new JFrame();
             f.setPreferredSize(new Dimension(700, 700));
