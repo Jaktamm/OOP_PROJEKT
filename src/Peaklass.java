@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.util.Arrays;
 import javax.swing.*;
 
 public class Peaklass{
@@ -22,10 +21,10 @@ public class Peaklass{
         f.add(new JLabel(new ImageIcon("pilt.jpg"))); //Selle reaga saab lihtsalt pilte lisada
         f.setVisible(true);
 
-        JList list = new JList(new String[] {rebane.getVastusevariandid()[0], rebane.getVastusevariandid()[1], rebane.getVastusevariandid()[2]});
+        JList küsimus1 = new JList(new String[] {rebane.getVastusevariandid()[0], rebane.getVastusevariandid()[1], rebane.getVastusevariandid()[2]});
         JOptionPane.showMessageDialog(
-                null, list, rebane.getKüsimus(), JOptionPane.PLAIN_MESSAGE);
-       punktid = õigeVastus(rebane, list.getSelectedIndex(),punktid);
+                null, küsimus1, rebane.getKüsimus(), JOptionPane.PLAIN_MESSAGE);
+        punktid = õigeVastus(rebane, küsimus1.getSelectedIndex(),punktid);
 
         voor(2, punktid);
     }
