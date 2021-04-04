@@ -1,15 +1,11 @@
 import java.awt.*;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import javax.swing.*;
-import java.io.*;
-import javax.sound.sampled.*;
 
 public class Peaklass{
     // exception viivituse proovimiseks
     public static void main(String[] args) throws Exception{
-        Küsimus rebane = new Küsimus("Mis on pildil?", new String[]{"Rebane", "Lehm", "Ilves"}, 0, 10);
-        // ei tulnud midagi tarka hetkel
+
         Küsimus nädalaPäev = new Küsimus("Mis päev on kaks päeva enne päeva, mis järgneb kohe päevale kolm päeva enne päeva, mis on kaks päeva pärast päeva kohe enne reedet?", new String[]{"pühapäev", "teisipäev", "neljapäev"}, 1, 10);
         Küsimus arvud = new Küsimus("Mu õde oli 10 aastat tagasi minust kaks korda vanem, nüüd on ta 26-aastane. Kui vana ma olen?",new String[]{"18-aastane", "16-aastane", "13-aastane"}, 0, 10);
         Küsimus kolmnurgad = new Küsimus("Mitu kolmnurka on pildil?", new String[]{"27","25", "17"}, 0, 10, "kolmnurgad.jpg");
