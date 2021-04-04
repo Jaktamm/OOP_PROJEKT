@@ -12,9 +12,11 @@ public class Peaklass{
         Küsimus arvud = new Küsimus("Mu õde oli 10 aastat tagasi minust kaks korda vanem, nüüd on ta 26-aastane. Kui vana ma olen?",new String[]{"18-aastane", "16-aastane", "13-aastane"}, 0, 10);
         Küsimus kolmnurgad = new Küsimus("Mitu kolmnurka on pildil?", new String[]{"27","25", "17"}, 0, 10, "kolmnurgad.jpg");
         Küsimus ruudud = new Küsimus("Mitu ruutu on pildil?", new String[]{"10","11", "12"}, 2, 10, "ruudud.jpg");
+        Küsimus kuubik = new Küsimus("Milline kuubik vastab antud pinnalaotusele?", new String[]{"a","b","c","d"}, 3, 10, "kuubik.jpg");
+        Küsimus blokid = new Küsimus("Mitmest kuubikust koosneb antud kujund?", new String[]{"a","b","c","d","e"},3,10, "blokid.jpg");
         SisestusegaKüsimus proov1 = new SisestusegaKüsimus("Mis päev täna on?", "pühapäev", 10);
         Küsimus[] küsimused1 = new Küsimus[]{nädalaPäev, arvud};
-        Küsimus[] küsimused2 = new Küsimus[]{ruudud, kolmnurgad};
+        Küsimus[] küsimused2 = new Küsimus[]{ruudud, kolmnurgad, kuubik, blokid};
 
         int punktid = 0;
 
@@ -22,7 +24,7 @@ public class Peaklass{
             voor(i+1, punktid);
             TimeUnit.SECONDS.sleep(1);
             JList list = new JList(new String[] {küsimused1[i].getVastusevariandid()[0], küsimused1[i].getVastusevariandid()[1], küsimused1[i].getVastusevariandid()[2]});
-            UIManager.put("OptionPane.minimumSize",new Dimension(1000,100));
+            UIManager.put("OptionPane.minimumSize",new Dimension(800,100));
             JOptionPane.showMessageDialog(
                     null, list, küsimused1[i].getKüsimus(), JOptionPane.PLAIN_MESSAGE);
             punktid = õigeVastus(küsimused1[i], list.getSelectedIndex(),punktid);
@@ -40,7 +42,7 @@ public class Peaklass{
             f.add(new JLabel(new ImageIcon(proov)));
             f.setVisible(true);
             JList list = new JList(new String[] {küsimused2[i].getVastusevariandid()[0], küsimused2[i].getVastusevariandid()[1], küsimused2[i].getVastusevariandid()[2]});
-            UIManager.put("OptionPane.minimumSize",new Dimension(1000,100));
+            UIManager.put("OptionPane.minimumSize",new Dimension(800,100));
             JOptionPane.showMessageDialog(
                     null, list, küsimused2[i].getKüsimus(), JOptionPane.PLAIN_MESSAGE);
             f.dispose();
