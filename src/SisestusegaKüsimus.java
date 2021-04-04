@@ -9,6 +9,7 @@ public class SisestusegaKüsimus {
         this.punktid = punktid;
     }
 
+
     public String getKüsimus() {
         return küsimus;
     }
