@@ -7,20 +7,22 @@ import javax.sound.sampled.*;
 
 public class Peaklass{
     // exception viivituse proovimiseks
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception{
         Küsimus rebane = new Küsimus("Mis on pildil?", new String[]{"Rebane", "Lehm", "Ilves"}, 0, 10);
         // ei tulnud midagi tarka hetkel
         Küsimus nädalaPäev = new Küsimus("Mis päev on kaks päeva enne päeva, mis järgneb kohe päevale kolm päeva enne päeva, mis on kaks päeva pärast päeva kohe enne reedet?", new String[]{"pühapäev", "teisipäev", "neljapäev"}, 1, 10);
         Küsimus arvud = new Küsimus("Mu õde oli 10 aastat tagasi minust kaks korda vanem, nüüd on ta 26-aastane. Kui vana ma olen?",new String[]{"18-aastane", "16-aastane", "13-aastane"}, 0, 10);
         Küsimus kolmnurgad = new Küsimus("Mitu kolmnurka on pildil?", new String[]{"27","25", "17"}, 0, 10, "kolmnurgad.jpg");
         Küsimus ruudud = new Küsimus("Mitu ruutu on pildil?", new String[]{"10","11", "12"}, 2, 10, "ruudud.jpg");
+        Küsimus misMaOlen = new Küsimus("Kui mind korrutatakse suvalise numbriga, on vastuses olevate numbrite summa alati mina ise. Mis ma olen?", new String[]{"1", "9", "2"}, 1, 10);
+        Küsimus mitmesKoht = new Küsimus("Sa möödud jooksuvõistlusel teisel kohal jooksvast jooksjast. Mitmendal kohal sa oled?", new String[]{"Sõltub osalejate arvust", "1.", "2."}, 2, 10);
         SisestusegaKüsimus proov1 = new SisestusegaKüsimus("Mis päev täna on?", "pühapäev", 10);
-        Küsimus[] küsimused1 = new Küsimus[]{nädalaPäev, arvud};
+        Küsimus[] küsimused1 = new Küsimus[]{nädalaPäev, arvud, misMaOlen, mitmesKoht};
         Küsimus[] küsimused2 = new Küsimus[]{ruudud, kolmnurgad};
 
         int punktid = 0;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 4; i++) {
             voor(i+1, punktid);
             TimeUnit.SECONDS.sleep(1);
             JList list = new JList(new String[] {küsimused1[i].getVastusevariandid()[0], küsimused1[i].getVastusevariandid()[1], küsimused1[i].getVastusevariandid()[2]});
@@ -33,7 +35,7 @@ public class Peaklass{
         System.out.println("Edasi tuleb pildiküsimuste plokk.");
 
         for (int i = 0; i < 2; i++) {
-            voor(i+1+2, punktid);
+            voor(i+1+4, punktid);
             TimeUnit.SECONDS.sleep(1);
             JFrame f=new JFrame();
             f.setPreferredSize(new Dimension(700, 700));
@@ -48,27 +50,9 @@ public class Peaklass{
             f.dispose();
             punktid = õigeVastus(küsimused2[i], list.getSelectedIndex(),punktid);
         }
-
-        try {
-            File yourFile;
-            AudioInputStream stream;
-            AudioFormat format;
-            DataLine.Info info;
-            Clip clip;
-
-            stream = AudioSystem.getAudioInputStream();
-            format = stream.getFormat();
-            info = new DataLine.Info(Clip.class, format);
-            clip = (Clip) AudioSystem.getLine(info);
-            clip.open(stream);
-            clip.start();
-        }
-        catch (Exception e) {
-            //whatevers
-        }
-
-
+        System.out.println("Said mälumängust kokku " + punktid + " punkti!");
     }//main
+
 
     public static void voor(int mitmes, int punktid){
         System.out.println("Käimas on " + mitmes + ". voor!");
