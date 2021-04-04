@@ -2,6 +2,8 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import javax.swing.*;
+import java.io.*;
+import javax.sound.sampled.*;
 
 public class Peaklass{
     // exception viivituse proovimiseks
@@ -22,7 +24,7 @@ public class Peaklass{
             voor(i+1, punktid);
             TimeUnit.SECONDS.sleep(1);
             JList list = new JList(new String[] {küsimused1[i].getVastusevariandid()[0], küsimused1[i].getVastusevariandid()[1], küsimused1[i].getVastusevariandid()[2]});
-            UIManager.put("OptionPane.minimumSize",new Dimension(1000,100));
+            UIManager.put("OptionPane.minimumSize",new Dimension(800,100));
             JOptionPane.showMessageDialog(
                     null, list, küsimused1[i].getKüsimus(), JOptionPane.PLAIN_MESSAGE);
             punktid = õigeVastus(küsimused1[i], list.getSelectedIndex(),punktid);
@@ -40,12 +42,31 @@ public class Peaklass{
             f.add(new JLabel(new ImageIcon(proov)));
             f.setVisible(true);
             JList list = new JList(new String[] {küsimused2[i].getVastusevariandid()[0], küsimused2[i].getVastusevariandid()[1], küsimused2[i].getVastusevariandid()[2]});
-            UIManager.put("OptionPane.minimumSize",new Dimension(1000,100));
+            UIManager.put("OptionPane.minimumSize",new Dimension(800,100));
             JOptionPane.showMessageDialog(
                     null, list, küsimused2[i].getKüsimus(), JOptionPane.PLAIN_MESSAGE);
             f.dispose();
             punktid = õigeVastus(küsimused2[i], list.getSelectedIndex(),punktid);
         }
+
+        try {
+            File yourFile;
+            AudioInputStream stream;
+            AudioFormat format;
+            DataLine.Info info;
+            Clip clip;
+
+            stream = AudioSystem.getAudioInputStream();
+            format = stream.getFormat();
+            info = new DataLine.Info(Clip.class, format);
+            clip = (Clip) AudioSystem.getLine(info);
+            clip.open(stream);
+            clip.start();
+        }
+        catch (Exception e) {
+            //whatevers
+        }
+
 
     }//main
 
