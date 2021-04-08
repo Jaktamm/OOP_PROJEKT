@@ -14,8 +14,14 @@ public class Peaklass{
         Küsimus mitmesKoht = new Küsimus("Sa möödud jooksuvõistlusel teisel kohal jooksvast jooksjast. Mitmendal kohal sa oled?", new String[]{"Sõltub osalejate arvust", "1.", "2."}, 2, 10);
         Küsimus kuubik = new Küsimus("Milline kuubik vastab antud pinnalaotusele?", new String[]{"a","b","c","d"}, 3, 10, "kuubik.jpg");
         Küsimus blokid = new Küsimus("Mitmest kuubikust koosneb antud kujund?", new String[]{"a","b","c","d","e"},3,10, "blokid.jpg");
-        Küsimus[] küsimused1 = new Küsimus[]{nädalaPäev, arvud, misMaOlen, mitmesKoht};
-        Küsimus[] küsimused2 = new Küsimus[]{ruudud, kolmnurgad, kuubik, blokid};
+        Küsimus lipp1 = new Küsimus("Mis riigi lipuga on tegu?", new String[]{"Horvaatia", "Sloveenia", "Slovakkia"}, 2,10, "slovakkia.jpg");
+        Küsimus lipp2 = new Küsimus("Mis riigi lipuga on tegu?", new String[]{"Moldova", "Rumeenia", "Venezuela"},2, 10, "venezuela.jpg");
+        Küsimus pealinn1 = new Küsimus("Millise riigi pealinn on Skopje?", new String[]{"Põhja-Makedoonia", "Bulgaaria", "Moldova"}, 0, 10);
+        Küsimus pealinn2 = new Küsimus("Millise riigi pealinn on Bern?", new String[]{"Austria", "Šveits", "Tšehhi"}, 1, 10);
+
+
+        Küsimus[] küsimused1 = new Küsimus[]{nädalaPäev, arvud, misMaOlen, mitmesKoht, pealinn1, pealinn2};
+        Küsimus[] küsimused2 = new Küsimus[]{ruudud, kolmnurgad, kuubik, blokid, lipp1, lipp2};
 
         int punktid = 0;
 
